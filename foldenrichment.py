@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Import the file containing log2 data
+# Import the file containing the protein Comparison (condition 1 / condition 2), log2 data, GO name, and GO number.
 data = pd.read_excel('GOEnri_log2_0.58.xlsx')
 
 # Filter data for specific group and p-value less than 0.05
