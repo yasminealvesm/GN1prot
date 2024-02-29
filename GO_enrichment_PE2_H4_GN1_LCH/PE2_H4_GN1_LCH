@@ -45,7 +45,7 @@ for namespace, color in category_colors.items():
 # Add labels and title
 ax.set_xlabel('Log2 Fold Enrichment')
 ax.set_ylabel('GO Name (GO ID)')
-ax.set_title('Top Termos de GO Enriquecidos para GN em LCH/YPD')
+ax.set_title('Top Enriched GO Terms for PE2_H4_GN1 in LCH/YPD')
 
 # Adjust the initial position of the bars
 ax.set_xlim(min(top_terms_per_category['Log2 Fold Enrichment']) - 0.25, max(top_terms_per_category['Log2 Fold Enrichment']) + 0.25)
