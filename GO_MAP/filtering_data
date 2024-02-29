@@ -1,0 +1,42 @@
+import pandas as pd
+
+# Read mapping data from Excel file
+table1 = pd.read_excel('mapping.xlsx')
+
+# Read LCHGN_LCHH4_ratio data from Excel file
+table2 = pd.read_excel('LCHGN_LCHH4_ratio.xlsx')
+
+# Merge mapping data with LCHGN_LCHH4_ratio data based on specified columns
+table2_filtered = pd.merge(table1, table2, left_on='query_x', right_on='Group', how='inner')
+
+# Select specific columns from the merged DataFrame
+table2_filtered = table2_filtered[['query_x', 'Group', 'AVG Log2 Ratio', 'qcov', 'scov', 'Ratio', 'change']]
+
+# Rename columns for better clarity
+table2_filtered = table2_filtered.rename(columns={'Group': 'group', 'AVG Log2 Ratio': 'log2', 'Ratio': 'ratio'})
+
+# Save the filtered DataFrame to a new Excel file
+table2_filtered.to_excel('LCHGN_LCHH4_filtered2.xlsx', index=False)
+
+# Repeat the above process for other datasets (LCHGN_YPDGN_ratio, LCHH4_YPDH4_ratio, YPDGN_YPDH4_ratio)
+
+# Read LCHGN_YPDGN_ratio data from Excel file
+table3 = pd.read_excel('LCHGN_YPDGN_ratio.xlsx')
+table3_filtered = pd.merge(table1, table3, left_on='query_x', right_on='Group', how='inner')
+table3_filtered = table3_filtered[['query_x', 'Group', 'AVG Log2 Ratio', 'qcov', 'scov', 'ratio', 'change']]
+table3_filtered = table3_filtered.rename(columns={'Group': 'group', 'AVG Log2 Ratio': 'log2'})
+table3_filtered.to_excel('LCHGN_YPDGN_filtered2.xlsx', index=False)
+
+# Read LCHH4_YPDH4_ratio data from Excel file
+table4 = pd.read_excel('LCHH4_YPDH4_ratio.xlsx')
+table4_filtered = pd.merge(table1, table4, left_on='query_x', right_on='Group', how='inner')
+table4_filtered = table4_filtered[['query_x', 'Group', 'AVG Log2 Ratio', 'qcov', 'scov', 'ratio', 'change']]
+table4_filtered = table4_filtered.rename(columns={'Group': 'group', 'AVG Log2 Ratio': 'log2'})
+table4_filtered.to_excel('LCHH4_YPDH4_filtered2.xlsx', index=False)
+
+# Read YPDGN_YPDH4_ratio data from Excel file
+table5 = pd.read_excel('YPDGN_YPDH4_ratio.xlsx')
+table5_filtered = pd.merge(table1, table5, left_on='query_x', right_on='Group', how='inner')
+table5_filtered = table5_filtered[['query_x', 'Group', 'AVG Log2 Ratio', 'qcov', 'scov', 'ratio', 'change']]
+table5_filtered = table5_filtered.rename(columns={'Group': 'group', 'AVG Log2 Ratio': 'log2'})
+table5_filtered.to_excel('YPDGN_YPDH4_filtered2.xlsx', index=False)
