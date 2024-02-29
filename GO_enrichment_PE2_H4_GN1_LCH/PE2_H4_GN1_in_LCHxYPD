@@ -26,7 +26,7 @@ top_terms_function = grouped_data[grouped_data.index.get_level_values('Namespace
 top_terms_per_category = pd.concat([top_terms_process, top_terms_component, top_terms_function])
 
 # Create a horizontal bar chart with adjusted size
-fig, ax = plt.subplots(figsize=(12, 8))  # Ajuste o tamanho conforme necessário
+fig, ax = plt.subplots(figsize=(12, 8))  # conform needs
 
 # Initialize a dictionary for unique labels
 legend_labels = {}
@@ -37,7 +37,7 @@ for namespace, color in category_colors.items():
     bars = ax.barh(subset['GO Name'] + ' (' + subset.index.get_level_values('GO Id').astype(str) + ')',
                    subset['Log2 Fold Enrichment'],
                    color=color,
-                   label=namespace)  # Adicionar rótulos aos objetos de barras
+                   label=namespace)  # labels to the columns
     
     # Add unique labels to dictionary
     legend_labels[namespace] = bars[0]
